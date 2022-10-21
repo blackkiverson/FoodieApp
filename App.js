@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, View } from 'react-native';
+import SplashScreen from './src/screens/SplashScreen';
+ 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello World, Welcome to Foodie!</Text>
+      <SplashScreen/>
       <StatusBar style="auto" />
     </View>
   );
