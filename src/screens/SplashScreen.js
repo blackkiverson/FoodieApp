@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     logo: {
+        /* Telling the image to take up all the space it can. */
         flex: 1,
         maxWidth: '100%',
         maxHeight: '20%'
