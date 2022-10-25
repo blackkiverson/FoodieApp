@@ -1,6 +1,6 @@
 import { StyleSheet, View, Image, useWindowDimensions } from 'react-native';
 import React from 'react';
-import Logo from '../../assets/img/FoodieLogoWhite.png'
+import Logo from '../../assets/img/FoodieLogoWhiteShadow.png'
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function SplashScreen(navigator) {
@@ -11,7 +11,6 @@ export default function SplashScreen(navigator) {
       <LinearGradient
         colors={["#B87B4E", "#EDAA78", "#B87B4E"]}
         style={styles.background}
-        resizeMode = 'contain'
       >
         <Image
             source={Logo}
@@ -25,7 +24,7 @@ export default function SplashScreen(navigator) {
 
 const styles = StyleSheet.create({
     background: {
-        width: '100%',
+        maxWidth: '100%',
         height: '100%',
         justifyContent: 'center',
     },
