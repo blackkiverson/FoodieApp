@@ -1,13 +1,22 @@
-import { StyleSheet, Text, Image, View, useWindowDimensions, Button, ScrollView } from 'react-native';
-import React from 'react';
-import Logo from '../../assets/img/FoodieLogoWhite.png';
-import { ImageBackground } from 'react-native';
-import CustomInput from '../components/CustomInput';
-import CustomSwitch from '../components/CustomSwitch';
+import {
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  useWindowDimensions,
+  Button,
+  ScrollView,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
+import React from "react";
+import Logo from "../../assets/img/FoodieLogoWhite.png";
+import { ImageBackground } from "react-native";
+import CustomInput from "../components/CustomInput";
 
-export default function SignUp() {
-    const {height} = useWindowDimensions(height);
-    
+const SignUpNoSwitch = ({navigation}) => {
+  const { height } = useWindowDimensions(height);
+
   return (
     <ScrollView>
       <View>
@@ -23,13 +32,20 @@ export default function SignUp() {
             resizeMode="contain"
           />
           <View style={{ height: "5%" }} />
-          <CustomSwitch />
           <Text style={styles.text}>Full Name</Text>
           <CustomInput />
           <Text style={styles.text}>Email Address</Text>
           <CustomInput />
           <Text style={styles.text}>Password</Text>
           <CustomInput />
+          <View style={styles.signInRouter}>
+            <Text>
+              Not the first time here?
+                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                    <Text style={styles.textButton}> Sign In.</Text>
+                </TouchableOpacity>
+            </Text>
+          </View>
           <View style={styles.buttonContainer}>
             <Button
               onPress={() => Alert.alert("Simple Button pressed")}
@@ -60,11 +76,16 @@ const styles = StyleSheet.create({
   buttonContainer: {
     color: "#fff",
     backgroundColor: "#6E2E00",
-    width: '80%',
+    width: "80%",
 
     borderRadius: 10,
 
     paddingVertical: 10,
-    marginVertical: 90
+    marginVertical: 90,
   },
+  textButton: {
+    color: '#fff',
+  }
 });
+
+export default SignUpNoSwitch;

@@ -1,14 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import SplashScreen from './src/screens/SplashScreen';
-import SignUp from './src/screens/SignUp';
+import SignUpNoSwitch from './src/screens/SignUpNoSwitch';
+import SignIn from './src/screens/SignIn';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
  
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SignUp/>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer style={styles.container}>
+    <StatusBar style='auto'/>
+      <Stack.Navigator initialRouteName='SplashScreen'>
+        <Stack.Screen
+          name='SplashScreen'
+          component={SplashScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='SignIn'
+          component={SignIn}
+        />
+        <Stack.Screen
+          name='SignUpNoSwitch'
+          component={SignUpNoSwitch}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

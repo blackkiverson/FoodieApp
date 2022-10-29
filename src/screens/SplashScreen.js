@@ -3,9 +3,9 @@ import React from 'react';
 import Logo from '../../assets/img/FoodieLogoWhiteShadow.png'
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function SplashScreen(navigator) {
-    const {height} = useWindowDimensions();
-
+export default function SplashScreen({navigation}) {
+  const {height} = useWindowDimensions();
+  setTimeout(() => {navigation.navigate('SignUpNoSwitch');}, 3000);
   return (
     <View>
       <LinearGradient
